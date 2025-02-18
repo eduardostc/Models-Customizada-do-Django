@@ -1,15 +1,5 @@
 from django.db import models
 
-# 1º opção (com usuário mais basico onde irá implementar manualmente várias funções necessária para o gerenciamento de usuários)
-    # from django.contrib.auth.models import AbstractBaseUser
-
-    # class CustomUsuario(AbstractBaseUser):
-    #     pass
-
-    #     def __str__(self):
-    #         return self.email
-
-
 # 2º opção (já tem o usuário base com as funcionalidades prontas para ser utilizada)
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 
