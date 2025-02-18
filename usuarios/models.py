@@ -23,6 +23,10 @@ class UsuarioManager(BaseUserManager):
         if not email:
             raise ValueError('O e-mail é obrigatório')
         email = self.normalize_email(email)
+        # Define o username como o email (ou outro valor único)
+        username = extra_fields.get('username', email)  # Usa o email como username, se não for fornecido
+        extra_fields.setdefault('username', username) #novas linhas acrescentada
+
         user = self.model(email=email, username=email, **extra_fields)
         user.set_password(password)#criptografa a senha.
         user.save(using=self._db)
